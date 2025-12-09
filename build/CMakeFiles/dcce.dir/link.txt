@@ -1,0 +1,1 @@
+/usr/bin/cc  -g -O0 -fno-omit-frame-pointer -fsanitize=address,undefined  -fsanitize=address,undefined CMakeFiles/dcce.dir/src/main.c.o -o dcce  /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/libglut.so /usr/lib/x86_64-linux-gnu/libXi.so -lm 

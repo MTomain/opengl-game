@@ -1,0 +1,3 @@
+/home/mariatomain/opengl-game/build/CMakeFiles/dcce.dir
+/home/mariatomain/opengl-game/build/CMakeFiles/edit_cache.dir
+/home/mariatomain/opengl-game/build/CMakeFiles/rebuild_cache.dir
