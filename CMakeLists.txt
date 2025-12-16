@@ -16,6 +16,12 @@ find_package(GLUT REQUIRED)
 # Isso torna mais fácil adicionar novos arquivos no futuro.
 set(SOURCES
     src/main.c
+    src/controls.c
+    src/mouse.c
+    src/keyboard.c
+    src/block.c
+    src/shader.c
+    src/glad.c
 )
 
 # Adiciona o diretório "include" para que você possa usar #include "house.h"
