@@ -6,15 +6,17 @@ in vec3 FragPos;
 out vec4 color;
 
 // Uniforms (Variáveis que vamos passar da Main)
-uniform vec3 lightPos; // Posição da luz (no View Space se possível, ou World)
+//uniform vec3 lightPos; // Posição da luz (no View Space se possível, ou World)
 uniform vec3 objectColor;
 
 void main()
 {
+
+    vec3 lightPos = gl_LightSource[0].position.xyz;
     // --- LÓGICA DE PHONG SIMPLES ---
 
     // 1. Ambiente
-    float ambientStrength = 0.2;
+    float ambientStrength = 0.5;
     vec3 ambient = ambientStrength * vec3(1.0, 1.0, 1.0);
   
     // 2. Difusa
@@ -26,7 +28,7 @@ void main()
     vec3 diffuse = diff * vec3(1.0, 1.0, 1.0);
     
     // 3. Especular (Simples)
-    float specularStrength = 0.5;
+    float specularStrength = 0.9;
     vec3 viewDir = normalize(-FragPos); // No ViewSpace, a camera está na origem (0,0,0)
     vec3 reflectDir = reflect(-lightDir, norm);  
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);

@@ -29,23 +29,29 @@ void Inicializa(void)
 
 void Draw()
 {
-   /* glColor3ub(100, 200, 0);
-    glPushMatrix();
-    glTranslatef(0, 0, 0);
-    glScalef(60, 0.01, 60);
-    glutSolidCube(30);
-    glPopMatrix(); */
+ 
 
     glUseProgram(shaderLight);
 
     int objColorLoc = glGetUniformLocation(shaderLight,"objectColor");
-    glUniform3f(objColorLoc,0.5f, 1.0f, 0.5f);
+    glUniform3f(objColorLoc,1.0f, 0.5f, 0);
 
     int LightPosLoc = glGetUniformLocation(shaderLight,"lightPos");
     glUniform3f(LightPosLoc,100.0f, 150.0f, 100.0f);
 
     block(100,100,100);
     //drawNormals(20,20,20);
+
+
+    int objColorLoc2 = glGetUniformLocation(shaderLight,"objectColor");
+    glUniform3f(objColorLoc2,0.5f, 1.0f, 0.5f);
+
+    glColor3ub(100, 200, 0);
+    glPushMatrix();
+    glTranslatef(0, 0, 0);
+    glScalef(60, 0.01, 60);
+    glutSolidCube(30);
+    glPopMatrix();
 
     glUseProgram(0);
 }
@@ -63,6 +69,9 @@ void DISPLAY(void)
     {
         gluPerspective(90, 1.0, 1.0, 500.0); // Use 1.0 para o aspect ratio para evitar problemas
     }
+
+    float posicaoLuz[] = { 100.0f, 200.0f, 100.0f, 1.0f }; 
+    glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
